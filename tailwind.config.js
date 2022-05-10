@@ -1,7 +1,6 @@
 module.exports = {
     purge: [
-        './src/**/*.html',
-        './src/**/*.js',
+        './{src,templates}/**/*.{html,js,ts,tsx}',
     ],
     darkMode: false,
     theme: {
