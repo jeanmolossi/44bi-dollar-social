@@ -1,0 +1,99 @@
+.login-container {
+	@apply
+		bg-twitter-dark-500/[0.4]
+		flex
+		flex-1
+		min-h-screen
+		items-center
+		justify-center;
+}
+
+.middle-container {
+	@apply
+		w-full
+		max-w-[600px]
+		flex
+		flex-col
+		flex-shrink
+		h-[650px]
+		max-h-[90vh]
+		min-h-[400px]
+		items-stretch
+		bg-black
+		rounded-2xl
+		my-6;
+}
+
+.form-control {
+	@apply
+		flex
+		relative
+		border-[1px]
+		p-[1px]
+		my-3
+		rounded-lg
+		border-gray-500
+
+		focus-within:border-cyan-500
+		focus-within:border-[2px]
+		focus-within:p-0;
+}
+
+.form-control__label {
+	@apply
+		text-gray-500
+		select-none
+		absolute
+		leading-[60px]
+		left-3
+		transition-all
+		duration-200
+		ease-out
+		cursor-text
+
+		group-focus-within:mt-2
+		group-focus-within:left-2
+		group-focus-within:text-sm
+		group-focus-within:text-cyan-500;
+}
+
+.form-control__label.filled {
+	@apply
+		mt-2
+		left-2
+		text-sm
+		text-gray-500
+}
+
+.form-control__input {
+	@apply
+		w-full
+		mt-7
+		pb-1
+		px-3
+		bg-transparent
+		text-white
+		block
+
+		focus:outline-none
+}
+
+.forgot-password__link {
+	@apply
+		flex
+		flex-col
+		justify-center
+		items-center
+		bg-transparent
+		border-[1px]
+		rounded-full
+		min-h-[50px]
+		text-lg
+		text-center
+		font-semibold
+		transition-[background-color]
+		duration-200
+		my-5
+		border-twitter-dark-600
+		hover:bg-twitter-dark-100/[0.1]
+}
