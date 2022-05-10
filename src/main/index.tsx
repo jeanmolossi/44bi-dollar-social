@@ -1,6 +1,7 @@
 import React from "react";
+import { Router } from "./router";
 import "@/presentation/styles/global.css";
 
 export default function App() {
-	return <h1 className="block bg-blue-500 text-xl">Hello World from main</h1>;
+	return <Router />;
 }
