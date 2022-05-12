@@ -71,3 +71,24 @@
 		border-twitter-dark-600
 		hover:bg-twitter-dark-100/[0.1]
 }
+
+.button__default {
+	@apply
+		flex
+		flex-col
+		justify-center
+		items-center
+		text-black
+		rounded-full
+		min-h-[50px]
+		text-lg
+		text-center
+		font-semibold
+		border-[1px]
+		transition-[background-color]
+		duration-200
+		my-5
+		border-twitter-dark-600
+		hover:bg-twitter-dark-100/[0.9]
+		bg-twitter-dark-100;
+}

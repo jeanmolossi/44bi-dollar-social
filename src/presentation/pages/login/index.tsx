@@ -1,52 +1,32 @@
-import React from "react";
-import { classes } from "@/presentation/helpers";
-import { useTextInput } from "@/presentation/helpers/hooks";
+import React, { useState } from "react";
 import { UnauthLayout } from "@/presentation/components";
+import { EmailScreen } from "./screens/email-screen";
+import { PasswordScreen } from "./screens/password-screen";
 import "./login.css";
+import { SwapComponent } from "@/presentation/helpers";
 
 export function Login() {
+	const [email, setEmail] = useState("");
+	const [shouldSwap, setShouldSwap] = useState(false);
+
+	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+
+		const formData = new FormData(event.currentTarget);
+
+		setEmail(formData.get("email")! as string);
+		setShouldSwap(true);
+	};
+
 	return (
 		<UnauthLayout>
-			<div className="flex flex-1 flex-col">
-				<div className="flex flex-1 flex-col">
-					<h1 className="text-3xl font-semibold my-5">
-						Para começar, informe telefone, e-mail ou @nomedeusuario
-					</h1>
-
-					<form className="">
-						{/*  */}
-						<EmailInput />
-						{/*  */}
-					</form>
-				</div>
-
-				<div className="flex-col flex">
-					<a className="forgot-password__link" href="#">
-						Esqueceu sua senha ?
-					</a>
-				</div>
-			</div>
+			<form className="flex flex-col flex-1" onSubmit={handleSubmit}>
+				{SwapComponent(
+					shouldSwap,
+					<PasswordScreen email="teste@email.com" />,
+					<EmailScreen />
+				)}
+			</form>
 		</UnauthLayout>
-	);
-}
-
-function EmailInput() {
-	const [email, onChangeEmail] = useTextInput();
-
-	return (
-		<div className="form-control group">
-			<label
-				htmlFor="email"
-				className={classes("form-control__label", { filled: !!email })}
-			>
-				Celular, e-mail ou nome de usuário
-			</label>
-			<input
-				id="email"
-				type="email"
-				className="form-control__input"
-				onChange={onChangeEmail}
-			/>
-		</div>
 	);
 }
