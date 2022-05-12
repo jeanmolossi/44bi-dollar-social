@@ -1,20 +1,27 @@
+import { RenderIf } from "@/presentation/helpers";
 import React from "react";
 import { FiX } from "react-icons/fi";
 import "./unauth.css";
-
 interface UnauthLayoutProps {
 	children?: React.ReactNode;
+	xButtonAction?: () => void;
 }
 
-export function UnauthLayout({ children }: UnauthLayoutProps) {
+export function UnauthLayout({ children, xButtonAction }: UnauthLayoutProps) {
 	return (
 		<div className="login-container">
 			<div className="middle-container">
 				<div className="px-2 h-12 grid grid-cols-[1fr_32px_1fr]">
 					<div className="w-full flex justify-start items-center">
-						<button className="hover:bg-twitter-dark-600/30 p-2 rounded-full">
-							<FiX size={22} />
-						</button>
+						{RenderIf(
+							Boolean(xButtonAction),
+							<button
+								className="hover:bg-twitter-dark-600/30 p-2 rounded-full"
+								onClick={xButtonAction}
+							>
+								<FiX size={22} />
+							</button>
+						)}
 					</div>
 
 					<div className="self-center w-[32px] flex items-center">
