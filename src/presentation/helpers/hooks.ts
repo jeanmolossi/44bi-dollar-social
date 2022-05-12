@@ -9,3 +9,7 @@ export function useTextInput(initialValue?: string) {
 
 	return [state, handleChange] as const;
 }
+
+export function useID(): string {
+	return window.crypto.randomUUID();
+}
