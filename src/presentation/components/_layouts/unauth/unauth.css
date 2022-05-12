@@ -1,0 +1,25 @@
+.login-container {
+	@apply
+		bg-twitter-dark-500/[0.4]
+		flex
+		flex-1
+		min-h-screen
+		items-center
+		justify-center;
+}
+
+.middle-container {
+	@apply
+		w-full
+		max-w-[600px]
+		flex
+		flex-col
+		flex-shrink
+		h-[650px]
+		max-h-[90vh]
+		min-h-[400px]
+		items-stretch
+		bg-black
+		rounded-2xl
+		my-6;
+}
