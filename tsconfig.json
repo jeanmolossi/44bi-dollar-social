@@ -9,7 +9,7 @@
     "jsx": "react",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "module": "ES6",
+    "module": "ESNext",
     "rootDir": "./",
     "moduleResolution": "node",
     "baseUrl": "./",
