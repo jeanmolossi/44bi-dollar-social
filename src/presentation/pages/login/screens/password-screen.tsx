@@ -2,12 +2,14 @@ import React from "react";
 import { useTextInput } from "@/presentation/helpers/hooks";
 import { EmailInput, PasswordInput } from "../components/form-inputs";
 import "../login.css";
+import { Button } from "@/presentation/components";
+import { SwapComponent } from "@/presentation/helpers";
 
 interface PasswordScreenProps {
 	email: string;
 }
 
-export function PasswordScreen({ email }: PasswordScreenProps) {
+export default function PasswordScreen({ email }: PasswordScreenProps) {
 	const [password, onChangePassword] = useTextInput();
 
 	return (
@@ -20,13 +22,13 @@ export function PasswordScreen({ email }: PasswordScreenProps) {
 			</div>
 
 			<div className="flex-col flex">
-				<button role="button" type="submit" className="button__default">
-					Acessar
-				</button>
-
-				{/* <a className="forgot-password__link" href="#">
+				{SwapComponent(
+					Boolean(password),
+					<Button type="submit">Acessar</Button>,
+					<a className="forgot-password__link" href="#">
 						Esqueceu sua senha ?
-					</a> */}
+					</a>
+				)}
 			</div>
 		</>
 	);
