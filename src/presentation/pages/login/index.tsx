@@ -1,4 +1,5 @@
 import React, { Suspense, useState } from "react";
+import { LoadingSpinner } from "@/presentation/components/loading-spinner";
 import { UnauthLayout } from "@/presentation/components";
 import { SwapComponent } from "@/presentation/helpers";
 import { EmailScreen } from "./screens/email-screen";
@@ -38,7 +39,7 @@ export function Login() {
 			<form className="flex flex-col flex-1" onSubmit={handleSubmit}>
 				{SwapComponent(
 					shouldSwap,
-					<Suspense fallback={"Loading password screen..."}>
+					<Suspense fallback={<LoadingSpinner size="large" />}>
 						<PasswordLazyScreen email={email} />
 					</Suspense>,
 					<EmailScreen />
