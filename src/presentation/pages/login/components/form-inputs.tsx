@@ -23,6 +23,7 @@ export function EmailInput({
 			</label>
 			<input
 				id={id}
+				name="email"
 				type="email"
 				className="form-control__input"
 				value={value}
