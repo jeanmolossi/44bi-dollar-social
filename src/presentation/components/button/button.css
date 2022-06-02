@@ -1,20 +1,45 @@
-.button__default {
+.button-base {
 	@apply
 		flex
 		flex-col
 		justify-center
 		items-center
-		text-black
 		rounded-full
 		min-h-[50px]
 		text-lg
 		text-center
 		font-semibold
 		border-[1px]
-		transition-[background-color]
+		transition-all
 		duration-200
 		my-5
+		px-4
+}
+
+.button__default {
+	@apply
+		button-base
+		text-black
 		border-twitter-dark-600
-		hover:bg-twitter-dark-100/[0.9]
-		bg-twitter-dark-100;
+		hover:bg-twitter-dark-100/[0.9];
+
+	@apply bg-twitter-dark-100 !important;
+}
+
+.button__blue {
+	@apply
+		button-base
+		text-white
+		border-twitter-dark-600;
+
+	@apply
+		bg-gradient-to-b
+		from-twitter-500
+		to-twitter-600
+		hover:from-twitter-500
+		hover:to-twitter-500 !important
+}
+
+.button__full {
+	@apply w-full;
 }
