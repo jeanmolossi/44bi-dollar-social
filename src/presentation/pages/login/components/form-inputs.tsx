@@ -1,5 +1,5 @@
 import React from "react";
-import { classes } from "@/presentation/helpers";
+import { classes, SwapComponent } from "@/presentation/helpers";
 import "../login.css";
 import { useID } from "@/presentation/helpers/hooks";
 
@@ -14,12 +14,20 @@ export function EmailInput({
 	...rest
 }: EmailInputProps) {
 	return (
-		<div className="form-control group">
+		<div className={classes("form-control group", { disabled })}>
 			<label
 				htmlFor={id}
-				className={classes("form-control__label", { filled: !!value })}
+				className={classes(
+					"form-control__label",
+					{ filled: !!value },
+					{ disabled }
+				)}
 			>
-				Celular, e-mail ou nome de usuário
+				{SwapComponent(
+					Boolean(disabled),
+					<>E-mail</>,
+					<>Celular, e-mail ou nome de usuário</>
+				)}
 			</label>
 			<input
 				id={id}
