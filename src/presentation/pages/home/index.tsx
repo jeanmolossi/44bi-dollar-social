@@ -1,4 +1,11 @@
 import React from "react";
+import { IconType } from "react-icons";
+import { RiHashtag, RiHome7Fill } from 'react-icons/ri'
+import { FaRegBell, FaRegEnvelope, FaRegUser } from 'react-icons/fa'
+import { IoEllipsisHorizontalCircle } from 'react-icons/io5'
+import { NavLink } from 'react-router-dom'
+import { RenderIf } from "@/presentation/helpers";
+import './home.css'
 
 export function Home() {
 	return (
@@ -9,7 +16,47 @@ export function Home() {
 			>
 				<div className="relative w-[275px] flex flex-col items-stretch flex-shrink-0 basis-auto">
 					<div className="fixed top-0 h-full px-3 flex flex-col justify-between">
-						<div>Menu</div>
+						<div>
+							<div className="h-14">LOGO</div>
+							<div>
+								<nav>
+
+									<NavItem
+										icon={RiHome7Fill}
+										label="Página inicial"
+										to="/home"
+										hasNotification
+									/>
+									<NavItem
+										icon={RiHashtag}
+										label="Exporar"
+										to="/explore"
+									/>
+									<NavItem
+										icon={FaRegBell}
+										label="Notificações"
+										to="/notitications"
+									/>
+									<NavItem
+										icon={FaRegEnvelope}
+										label="Mensagens"
+										to="/messages"
+									/>
+									<NavItem
+										icon={FaRegUser}
+										label="Perfil"
+										to="/profile"
+									/>
+									<NavItem
+										icon={IoEllipsisHorizontalCircle}
+										label="Mais"
+										to="/more"
+									/>
+
+								</nav>
+							</div>
+						</div>
+
 						<div>Bottom</div>
 					</div>
 				</div>
@@ -19,5 +66,37 @@ export function Home() {
 				Main content
 			</main>
 		</div>
+	)
+}
+
+interface NavItemProps {
+	icon: IconType;
+	label: string;
+	to: string;
+	hasNotification?: boolean;
+}
+
+function NavItem({ icon: Icon, label, to, hasNotification = false }: NavItemProps) {
+	return (
+		<NavLink to={to} className="nav-link group">
+			<div className="flex p-3 group rounded-full max-w-full items-stretch">
+				<div className="flex items-center relative">
+					{RenderIf(
+						hasNotification,
+						<div className="absolute top-0 right-0">
+							<span className="flex h-[10px] w-[10px]">
+								<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+								<span className="relative inline-flex self-center mx-auto rounded-full h-2 w-2 bg-sky-500"></span>
+							</span>
+						</div>
+					)}
+
+					<Icon size={26} />
+				</div>
+				<div className="ml-5 mr-4">
+					<span className="text-xl text-inherit">{label}</span>
+				</div>
+			</div>
+		</NavLink>
 	)
 }
