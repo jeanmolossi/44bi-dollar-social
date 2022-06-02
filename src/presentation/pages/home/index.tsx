@@ -5,6 +5,7 @@ import { FaRegBell, FaRegEnvelope, FaRegUser } from 'react-icons/fa'
 import { IoEllipsisHorizontalCircle } from 'react-icons/io5'
 import { NavLink } from 'react-router-dom'
 import { RenderIf } from "@/presentation/helpers";
+import { Button } from "@/presentation/components";
 import './home.css'
 
 export function Home() {
@@ -54,6 +55,10 @@ export function Home() {
 									/>
 
 								</nav>
+							</div>
+
+							<div className="inline-flex w-full">
+								<Button variant="blue" fullWidth>Tweetar</Button>
 							</div>
 						</div>
 
