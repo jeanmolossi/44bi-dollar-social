@@ -3,6 +3,7 @@ import { IconType } from "react-icons";
 import { RiHashtag, RiHome7Fill } from 'react-icons/ri'
 import { FaRegBell, FaRegEnvelope, FaRegUser } from 'react-icons/fa'
 import { IoEllipsisHorizontalCircle } from 'react-icons/io5'
+import { FiCheck, FiMoreHorizontal } from "react-icons/fi";
 import { NavLink } from 'react-router-dom'
 import { RenderIf } from "@/presentation/helpers";
 import { Button } from "@/presentation/components";
@@ -62,7 +63,71 @@ export function Home() {
 							</div>
 						</div>
 
-						<div>Bottom</div>
+						<div className="my-3 relative">
+							<div
+								aria-label="Menu da conta"
+								className="p-3 flex group rounded-full transition-all duration-200 hover:bg-twitter-dark-600/20 active:bg-twitter-dark-600/40 cursor-default"
+							>
+								<div className="inline-block h-12 w-12">
+									<img
+										className="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+										src="https://randomuser.me/api/portraits/men/89.jpg"
+									/>
+								</div>
+
+								<div className="mx-3 flex flex-col">
+									<div>
+										<span className="font-semibold">John Doe</span>
+									</div>
+									<div>
+										<span className="text-twitter-dark-600 text-sm">@JohnDoe</span>
+									</div>
+								</div>
+
+								<div className="flex items-center justify-end flex-1">
+									<FiMoreHorizontal size={20} />
+								</div>
+							</div>
+
+							{RenderIf(
+								true,
+								<div className="absolute bottom-full py-4 -inset-x-5 shadow-[0_1px_4px,0_-1px_4px] shadow-gray-600 rounded-lg bg-black">
+									<div
+										aria-label="Menu da conta"
+										className="p-3 flex group rounded-full transition-all duration-200 hover:bg-twitter-dark-600/20 active:bg-twitter-dark-600/40 cursor-default"
+									>
+										<div className="inline-block h-12 w-12">
+											<img
+												className="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+												src="https://randomuser.me/api/portraits/men/89.jpg"
+											/>
+										</div>
+
+										<div className="mx-3 flex flex-col">
+											<div>
+												<span className="font-semibold">John Doe</span>
+											</div>
+											<div>
+												<span className="text-twitter-dark-600 text-sm">@JohnDoe</span>
+											</div>
+										</div>
+
+										<div className="flex items-center justify-end flex-1">
+											<FiCheck size={20} color="#0080b1" />
+										</div>
+									</div>
+
+									<div className="flex flex-1 flex-col items-stretch">
+										<button className="hover:bg-twitter-dark-600/20">
+											<div className="m-4 text-sm text-left">Adicionar conta existente</div>
+										</button>
+										<button className="hover:bg-twitter-dark-600/20">
+											<div className="m-4 text-sm text-left">Sair de @JohnDoe</div>
+										</button>
+									</div>
+								</div>
+							)}
+						</div>
 					</div>
 				</div>
 			</header>
