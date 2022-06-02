@@ -1,6 +1,7 @@
 .form-control {
 	@apply
 		flex
+		flex-col
 		relative
 		border-[1px]
 		p-[1px]
@@ -59,6 +60,10 @@
 
 		focus:outline-none
 		disabled:text-twitter-dark-600/75;
+}
+
+.form-control__password {
+	@apply form-control__input flex-1 flex-grow;
 }
 
 .forgot-password__link {

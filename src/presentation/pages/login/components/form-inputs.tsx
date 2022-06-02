@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import { classes, SwapComponent } from "@/presentation/helpers";
-import "../login.css";
 import { useID } from "@/presentation/helpers/hooks";
+import "../login.css";
 
 type EmailInputProps = React.InputHTMLAttributes<HTMLInputElement>;
 type PasswordInputProps = React.InputHTMLAttributes<HTMLInputElement>;
@@ -50,6 +51,14 @@ export function PasswordInput({
 	disabled,
 	...rest
 }: PasswordInputProps) {
+	const [isVisible, setIsVisible] = useState(false);
+
+	const toggleVisibility = () => {
+		setIsVisible(!isVisible)
+	}
+
+	const type = useMemo(() => isVisible ? "text" : "password", [isVisible])
+
 	return (
 		<div className="form-control group">
 			<label
@@ -58,15 +67,29 @@ export function PasswordInput({
 			>
 				Senha
 			</label>
-			<input
-				id={id}
-				type="password"
-				className="form-control__input"
-				value={value}
-				onChange={onChange}
-				disabled={disabled}
-				{...rest}
-			/>
+			<div className="flex items-stretch">
+				<input
+					id={id}
+					type={type}
+					className="form-control__password"
+					value={value}
+					onChange={onChange}
+					disabled={disabled}
+					{...rest}
+				/>
+
+				<button
+					type="button"
+					className="flex flex-end items-end mb-2 mr-2"
+					onClick={toggleVisibility}
+				>
+					{SwapComponent(
+						isVisible,
+						<FiEyeOff size={22} />,
+						<FiEye size={22} />
+					)}
+				</button>
+			</div>
 		</div>
 	);
 }
