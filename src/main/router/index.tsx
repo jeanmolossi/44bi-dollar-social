@@ -1,8 +1,9 @@
-import { LoadingSpinner } from "@/presentation/components/loading-spinner";
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LoadingSpinner } from "@/presentation/components/loading-spinner";
 
 const MakeLoginFactory = React.lazy(() => import("../factory/pages/login"));
+const MakeHomeFactory = React.lazy(() => import("../factory/pages/home"));
 
 export function Router() {
 	return (
@@ -13,6 +14,15 @@ export function Router() {
 					element={
 						<Suspense fallback={<LoadingSpinner size="large" />}>
 							<MakeLoginFactory />
+						</Suspense>
+					}
+				/>
+
+				<Route
+					path="/home"
+					element={
+						<Suspense fallback={<LoadingSpinner size="large" />}>
+							<MakeHomeFactory />
 						</Suspense>
 					}
 				/>
