@@ -19,7 +19,7 @@ export function EmailInput({
 				htmlFor={id}
 				className={classes(
 					"form-control__label",
-					{ filled: !!value },
+					{ filled: !!value || disabled },
 					{ disabled }
 				)}
 			>
