@@ -1,4 +1,5 @@
 import React, { Suspense, useState } from "react";
+import { useNavigate } from 'react-router-dom'
 import { LoadingSpinner } from "@/presentation/components/loading-spinner";
 import { UnauthLayout } from "@/presentation/components";
 import { SwapComponent } from "@/presentation/helpers";
@@ -18,6 +19,7 @@ function onlyOnPasswordStep(isOnPasswordStep: boolean, callback: () => void) {
 }
 
 export function Login() {
+	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [shouldSwap, setShouldSwap] = useState(false);
 
@@ -26,8 +28,14 @@ export function Login() {
 
 		const formData = new FormData(event.currentTarget);
 
-		setEmail(formData.get("email")! as string);
-		setShouldSwap(true);
+		if(!shouldSwap) {
+			setEmail(formData.get("email")! as string);
+			setShouldSwap(true);
+		} else {
+			if(formData.get("password") === "123456") {
+				navigate('/home')
+			}
+		}
 	};
 
 	const xButtonAction = onlyOnPasswordStep(shouldSwap, () => {

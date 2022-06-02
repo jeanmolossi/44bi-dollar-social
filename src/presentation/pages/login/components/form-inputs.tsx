@@ -71,6 +71,7 @@ export function PasswordInput({
 				<input
 					id={id}
 					type={type}
+					name="password"
 					className="form-control__password"
 					value={value}
 					onChange={onChange}
