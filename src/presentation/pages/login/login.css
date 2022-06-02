@@ -13,6 +13,10 @@
 		focus-within:p-0;
 }
 
+.form-control.disabled {
+	@apply border-0;
+}
+
 .form-control__label {
 	@apply
 		text-gray-500
@@ -39,6 +43,10 @@
 		text-gray-500
 }
 
+.form-control__label.disabled {
+	@apply text-twitter-dark-600/75 !important;
+}
+
 .form-control__input {
 	@apply
 		w-full
@@ -50,6 +58,7 @@
 		block
 
 		focus:outline-none
+		disabled:text-twitter-dark-600/75;
 }
 
 .forgot-password__link {
